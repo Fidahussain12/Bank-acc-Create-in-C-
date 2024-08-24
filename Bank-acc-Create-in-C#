@@ -1,0 +1,63 @@
+using System; 
+
+class BankAccount
+{
+    double balance; 
+
+    public BankAccount(double initialbalance)
+    {
+        if (initialbalance >= 0 )
+        {
+            balance = initialbalance; 
+        }
+        else
+        {
+            Console.WriteLine("Amount can not be in Negative Number");
+            balance = 0; 
+        }
+    }
+    public void Deposite(double amount)
+    {
+        if(amount >= 0)
+        {
+            balance += amount;
+            Console.WriteLine("Current Balance : " + balance); 
+
+        }
+        else 
+        {
+            Console.WriteLine("Amount can not be in Negative Number");
+        }
+    }
+    public void Widthdraw(double amount)
+    {
+        if(amount >= 0)
+        {
+            if(amount <= balance)
+            {
+                balance -= amount;
+                Console.WriteLine("After WidthDrwal: Current Balance : " + balance);
+            }
+            else
+            {
+                Console.WriteLine("Insufficient Amount : " + balance);
+            }
+        }
+        else
+        {
+            Console.WriteLine("Amount can not be in Negative Number");
+        }
+    }
+
+
+
+    public static void Main()
+    {
+        BankAccount bank = new BankAccount(0);
+        bank.Deposite(500);
+        bank.Widthdraw(50);
+             bank.Widthdraw(100);
+        bank.Widthdraw(30);
+
+    }
+
